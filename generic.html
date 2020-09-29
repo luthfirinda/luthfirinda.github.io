@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Generic Page - Massively by HTML5 UP</title>
+		<title>CO2 Gas Emissions By Indonesia</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -16,24 +16,21 @@
 
 		<!-- Wrapper -->
 			<div id="wrapper">
-
+			
 				<!-- Header -->
 					<header id="header">
-						<a href="index.html" class="logo">Massively</a>
+						<a href="https://www.youtube.com/watch?v=BrnDlRmW5hs&ab_channel=Lo-fiMusic" target="_blank" class="logo">have fun! :)</a>
 					</header>
 
 				<!-- Nav -->
 					<nav id="nav">
 						<ul class="links">
-							<li><a href="index.html">This is Massively</a></li>
-							<li class="active"><a href="generic.html">Generic Page</a></li>
-							<li><a href="elements.html">Elements Reference</a></li>
+							<li><a href="index.html">Welcome</a></li>
+							<li class="active"><a href="generic.html">CO2 GAS EMISSIONS BY INDONESIA</a></li>
 						</ul>
 						<ul class="icons">
-							<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-							<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-							<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-							<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+							<li><a href="https://www.linkedin.com/in/luthfirinda/" target="_blank" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
+							<li><a href="https://luthfirinda.github.io/" target="_blank" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
 						</ul>
 					</nav>
 
@@ -43,64 +40,97 @@
 						<!-- Post -->
 							<section class="post">
 								<header class="major">
-									<span class="date">April 25, 2017</span>
-									<h1>This is a<br />
-									Generic Page</h1>
-									<p>Aenean ornare velit lacus varius enim ullamcorper proin aliquam<br />
-									facilisis ante sed etiam magna interdum congue. Lorem ipsum dolor<br />
-									amet nullam sed etiam veroeros.</p>
+									<span class="date">September 2020</span>
+									<h1>CO2 GAS EMISSIONS<br />
+									BY INDONESIA</h1>
+									<p>This is my first simple project on MySQL based on Annual CO2 Emissions from all around the world from 1750 to 2017.</p>
 								</header>
-								<div class="image main"><img src="images/pic01.jpg" alt="" /></div>
-								<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur sapien risus, commodo eget turpis at, elementum convallis enim turpis, lorem ipsum dolor sit amet nullam.</p>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus. Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum.</p>
+								<div class="image main"><img src="images/refinery-emissions (2).jpg" alt="" /></div>
+								<p>This is my first simple project on MySQL based on Annual CO2 Emissions from all around the world from 1750 to 2017. In this project, I will use 3 important tools: First, <b>MySQL Workbench 8.0 CE</b>, to import records from an external file (this case I use csv file from  keggle. Thanks to <a href="https://www.kaggle.com/yoannboyere/co2-ghg-emissionsdata" target="_blank">keggle</a>  and who posted the data!). Second, <b>Microsoft Excel</b> to prepare and import text file from csv file and to make the graphics of the data (yes, when this portfolio posted I have not been able to use other data visualization like Tableu, Microsoft power BI, etc. But for the next time, I sure to use it!). And the last I use <b>Beekeeper Studio</b> as SQL editor.</p>
+								This project will concern about Indonesia.:<br>
+									<ol><li>The Annual CO2 Emissions by Indonesia from 1946 – 2017</li>
+									<li>The ratio and Annual CO2 Emissions by Indonesia with ASEAN member countries.</li>							
+								<p>First, I download the data from keggle (csv file) and then I import it to excel to make sure my data have no error, at least top 10 - 20 of the data have a good structure. This picture will show you the data before and after I import the data to excel:</p>
+								<img src="images/Untitled-3.jpg" alt="" />
+								<p>More readable and editable right? Then, if you can see the different before and after pictures, at after pictures there are id column and at Annual CO Emissions column was divided by 1000. I tell you why. After I import the data to excel, I realize MySQL only works to import the data if the data have the column that can be consists of Primary Key, so I add the id column to be the primary key. And then, at the annual CO Emissions column the number I divided by 1000. Because, before I divide the number by 1000 and I import the data to MySQL, it takes a long time to import the data to MySQL. But that’s not the big problem. I can modify it at MySQL.</p>
+								<p>After that, I make the database in MySQL and the table matches the column in the previous file. To make the database I made from MySQL’s option, so I don’t need to make the queries to make the database. Then I make the table named <b>gascooemission</b> and use query like this:</p>
+								<head>
+								<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?lang=sql&amp;skin=sunburst"></script>
+								</head>
+								<pre class="prettyprint lang-sql">
+CREATE TABLE gascooemission( 
+	id INT PRIMARY KEY,
+	Entity VARCHAR(50),
+	Code VARCHAR(30),
+	Year INT,
+	Annual_CO_Emissions DECIMAL(10,02));</pre>
+								<p>And this is the sample of data or head data:</p>
+								<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?lang=sql&amp;skin=sunburst"></script>
+								</head>
+								<pre class="prettyprint lang-sql">
+SELECT *
+FROM gascooemission
+LIMIT 5;</pre>
+								<p><img src="images/Untitled-5.jpg" alt="" /></p>
+								<p>Then, it's better to check the data there is null or not. Just to make sure, because the data has more than 20000 rows.</p>
+								<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?lang=sql&amp;skin=sunburst"></script>
+								</head>
+								<pre class="prettyprint lang-sql">
+SELECT *
+FROM gascooemission
+WHERE id <> NULL OR Entity <> NULL OR Code <> NULL OR Year <> NULL OR Annual_CO_Emissions <> NULL;</pre>
+								<p>Since there are no null values we can safely proceed with the next steps. </p>
+								<h3>The Annual CO2 Emissions by Indonesia from 1946 – 2017</h3>
+								<p>The data is available from 1889, but I choose from 1946 because that year was 1 year after Indonesia declaring the independence. Oh, remember the Annual_CO_Emissions was divided by 1000? Let's make the new column to show how if the Annual_CO_Emissions not divided by 1000 (I know it's a little bit different, but it's not a big problem. The data still shows the actual conditions):</p>
+								<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?lang=sql&amp;skin=sunburst"></script>
+								</head>
+								<pre class="prettyprint lang-sql">
+SELECT g.*, (g.Annual_CO_Emissions * 1000) AS Annual_CO_Emissions_in_Tonnes
+FROM gascooemission g
+WHERE g.entity = 'Indonesia'
+AND YEAR BETWEEN 1946 AND 2017;</pre>
+
+<iframe width="640" height="331" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQw7QxQYSfw3G3cirN3gpfJItdCyWHF7nI2yRuTeG-KIKxNvS1c3h2MYgYO1bP48h_81zHnosv6lepP/pubchart?oid=1485837895&amp;format=interactive"></iframe>
+								<p>The graphics show the total CO2 by Indonesia in 1946 – 2017 keep increasing until 2012 have the highes total, and then the total CO2 decreasing.</p>
+								<h3>The ratio and Annual CO2 Emissions by Indonesia with ASEAN member countries</h3>
+								<p>The Association of Southeast Asian Nations (ASEAN) is a regional grouping that promotes economic, political, and security cooperation among its ten members: Brunei, Cambodia, Indonesia, Laos, Malaysia, Myanmar, the Philippines, Singapore, Thailand, and Vietnam. The data will shown from 1999 to 2017. 1999 was chosen because Cambodia just joined in that year.</p>
+								<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?lang=sql&amp;skin=sunburst"></script>
+								</head>
+								<pre class="prettyprint lang-sql">
+SELECT g.Entity, g.Code, SUM((g.Annual_CO_Emissions * 1000)) AS Annual_CO_Emissions_in_Tonnes
+FROM gascooemission g
+WHERE g.entity REGEXP 'indo|malay|singa|thai|Philippines|brunei|viet|Laos|Myan|Cambo'
+AND YEAR BETWEEN 1999 AND 2017
+GROUP BY g.Entity
+ORDER BY Annual_CO_Emissions_in_Tonnes DESC;</pre>
+<p><iframe width="600" height="371" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQw7QxQYSfw3G3cirN3gpfJItdCyWHF7nI2yRuTeG-KIKxNvS1c3h2MYgYO1bP48h_81zHnosv6lepP/pubchart?oid=1886166616&amp;format=interactive"></iframe><iframe width="737" height="371" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQw7QxQYSfw3G3cirN3gpfJItdCyWHF7nI2yRuTeG-KIKxNvS1c3h2MYgYO1bP48h_81zHnosv6lepP/pubchart?oid=305072782&amp;format=interactive"></iframe></p>
+								The geo chart show that Indonesia is the biggest CO2 gas emitter in ASEAN. It can reveal several causes:
+								<div align="justify"><ol><li>Indonesia is a country that has the largest population in ASEAN. Which means, the mobility in Indonesia is more than other ASEAN member countries.</li>
+								<li>But, if compare with population size, why Philippines as the country that has the second largest population in Asean not occupying the second biggest CO2 gas emitter in Asean? It indicates, that Indonesia not really ready to handle CO2 gas emissions from all aspects. We can handle CO2 gas emissions in simple ways like reduce the frequency of using private motor vehicle, throw garbage in its place and not cutting down forests.</li></ol></div>
+								
+
 							</section>
 
 					</div>
 
 				<!-- Footer -->
 					<footer id="footer">
-						<section>
-							<form method="post" action="#">
-								<div class="fields">
-									<div class="field">
-										<label for="name">Name</label>
-										<input type="text" name="name" id="name" />
-									</div>
-									<div class="field">
-										<label for="email">Email</label>
-										<input type="text" name="email" id="email" />
-									</div>
-									<div class="field">
-										<label for="message">Message</label>
-										<textarea name="message" id="message" rows="3"></textarea>
-									</div>
-								</div>
-								<ul class="actions">
-									<li><input type="submit" value="Send Message" /></li>
-								</ul>
-							</form>
-						</section>
 						<section class="split contact">
 							<section class="alt">
-								<h3>Address</h3>
-								<p>1234 Somewhere Road #87257<br />
-								Nashville, TN 00000-0000</p>
-							</section>
-							<section>
-								<h3>Phone</h3>
-								<p><a href="#">(000) 000-0000</a></p>
+								<h3>Gracias!</h3>
+								<p>I can be reached anytime via e-mail or my linkedin
+									in the link below!
+								</p>
 							</section>
 							<section>
 								<h3>Email</h3>
-								<p><a href="#">info@untitled.tld</a></p>
+								<p><a href="mailto:luthfirinda.i@gmail.com">luthfirinda.i@gmail.com</a></p>
 							</section>
 							<section>
 								<h3>Social</h3>
 								<ul class="icons alt">
-									<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
-									<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
-									<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
-									<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+									<li><a href="https://www.linkedin.com/in/luthfirinda/" target="_blank" class="icon brands alt fa-linkedin"><span class="label">Linkedin</span></a></li>
+									<li><a href="https://luthfirinda.github.io/" target="_blank" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
 								</ul>
 							</section>
 						</section>
