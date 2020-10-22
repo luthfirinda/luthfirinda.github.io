@@ -1,0 +1,251 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Analyze Data about Groceries Store Products</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+			
+				<!-- Header -->
+					<header id="header">
+						<a href="https://www.youtube.com/watch?v=BrnDlRmW5hs&ab_channel=Lo-fiMusic" target="_blank" class="logo">have fun! :)</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="index.html">Welcome</a></li>
+							<li class="active"><a href="generic.html">Analyze Data about Groceries Store Products</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="https://www.linkedin.com/in/luthfirinda/" target="_blank" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
+							<li><a href="https://luthfirinda.github.io/" target="_blank" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<span class="date">October 2020</span>
+									<h1>Analyze Data about Groceries Store Products<br /></h1>
+									<p>This is my simple analyze data and visualization project about Groceries Store using SQL and Microsoft Power BI</p>
+								</header>
+								<div class="image main"><img src="images/groceries2.jpg" alt="" /></div>
+								<p>This is my second project on MySQL based on Groceries Store data. I got the dataset from <a href="https://www.kaggle.com/heeraldedhia/groceries-dataset" target="_blank">Keggle</a>. I use 3 tools to analyze the data. The tools are <b>Excel</b> to prepare the data, <b>MySQL Workbench</b> to import the data with <b>Beekeeper Studio</b> as SQL editor. To visualize the data i use <b>Microsoft Power BI</b>. The data have 38765 rows x 4 columns which 1 column i added to add primary key on this data.</p>
+								This project will concern about:<br>
+									<ol><li>Top 10 selling products</li>
+									<li>Top 10 unsold products</li>							
+									<li>Top 5 customers who buy frequently</li>
+									<li>The number of products purchased per year</li>
+									<li>The number of products purchased per month</li>
+									<li>The number of products purchased by day</li>
+									<li>Visualize the Word cloud of products</li>
+								<p>First, I download the data from keggle (csv file) and then I import it to excel to make sure my data have no error especially on date column. Because, date format in default usually not <i>YYYY-MM-DD</i> format which is that's not readable on <b>MySQL</b>. First, i must create table to prepare the imported file:</p>
+								<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?lang=sql&amp;skin=sunburst"></script>
+								</head>
+								<pre class="prettyprint lang-sql">
+CREATE TABLE groceries_list (
+	number INT PRIMARY KEY,
+	member_number INT,
+	date DATE,
+	item_description VARCHAR(50)
+	);</pre>
+								<p>I must make sure the data has no <i>NULL</i> values. So: </p>
+								<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?lang=sql&amp;skin=sunburst"></script>
+							</head>
+							<pre class="prettyprint lang-sql">
+SELECT *
+	FROM groceries_list
+	WHERE member_number = NULL OR date = NULL OR item_description = NULL;</pre>
+								<p><img src="images/nonull.png" alt="" /></p>
+								<p>The data has no <i>NULL</i> values. So i can move to the next steps.</p>
+								<h3>Top 10 selling products </h3>
+								<p>This section will show top 10 most purchased</p>
+								<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?lang=sql&amp;skin=sunburst"></script>
+								</head>
+								<pre class="prettyprint lang-sql">
+SELECT item_description AS Item, COUNT(item_description) AS "Item Count"
+	FROM groceries_list
+	GROUP BY item_description
+	ORDER BY COUNT(item_description) DESC
+	LIMIT 10;</pre>
+								<img src="images/top10sellingproduct.jpg" alt="" />
+								<p>The chart show that the <b>whole milk</b> product occupying the first position of top 10 best selling products followed by vegetables products. So, groceries must improve the quality of other products besides milk and keep maintain the quality of milk products.</p>
+								<h3>Top 10 unsold products </h3>
+								<p>This section will show top 10 most unsold products</p>
+								<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?lang=sql&amp;skin=sunburst"></script>
+								</head>
+								<pre class="prettyprint lang-sql">
+SELECT item_description AS Item, COUNT(item_description) AS "Item Count"
+	FROM groceries_list
+	GROUP BY item_description
+	ORDER BY COUNT(item_description)
+	LIMIT 10;</pre>
+								<img src="images/top10unsoldproducts.jpg" alt="" />
+								<h3>Top 5 customers who buy frequently </h3>
+								<p>This section will show top 5 customers who buy frequently</p>
+								<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?lang=sql&amp;skin=sunburst"></script>
+								</head>
+								<pre class="prettyprint lang-sql">
+SELECT member_number AS member, COUNT(item_description) AS "Quantity"
+	FROM groceries_list
+	GROUP BY member
+	ORDER BY COUNT(item_description) DESC
+	LIMIT 5;</pre>
+								<img src="images/top5customerswhobuyfrequently.jpg" alt="" />
+								<p>The chart show that the customer number <b>3180</b> is the first position customer who buy frequently than others, followed by 2051, 3050, 3737 and 3915. The chart also look uniform from one to other which means that they are loyal customers. Groceries can make bonus or reward to them (customers who buy frequently), because it can keep customers buying at the groceries.</p>
+								<h3>The number of products purchased per year</h3>
+								<p>This section will show the number of products purchased per year</p>
+								<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?lang=sql&amp;skin=sunburst"></script>
+								</head>
+								<pre class="prettyprint lang-sql">
+SELECT COUNT(item_description) AS "Item Count", YEAR(date) AS tahun
+	FROM groceries_list
+	GROUP BY tahun;</pre>
+								<img src="images/2015vs2014.jpg" alt="" />
+								<p>The chart show that in <b>2015</b> sales increased compared to 2014 sales. Maybe the groceries have a good market at 2015 because the sales increased. </p>
+								<h3>The number of products purchased per month</h3>
+								<p>This section will show the number of products purchased per month</p>
+								<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?lang=sql&amp;skin=sunburst"></script>
+								</head>
+								<pre class="prettyprint lang-sql">
+SELECT COUNT(item_description) AS "Item Count", MONTH(date) as bulan
+	FROM groceries_list
+	GROUP by bulan
+	ORDER BY bulan;</pre>
+								<img src="images/quantityproductsbymonthinallyears.jpg" alt="" />
+								<p>Groceries products are mostly purchased in <b>August</b> but how about if i separate it by month in each year, is August still the most popular month for product purchases? Let's check it out.</p>
+								<pre class="prettyprint lang-sql">
+-- in 2015
+SELECT COUNT(item_description) AS "Item Count", MONTH(date) as bulan
+	FROM groceries_list
+	WHERE YEAR(date) = '2015'
+	GROUP by bulan
+	ORDER BY bulan;
+
+-- in 2014
+SELECT COUNT(item_description) AS "Item Count", MONTH(date) as bulan
+	FROM groceries_list
+	WHERE YEAR(date) = '2014'
+	GROUP by bulan
+	ORDER BY bulan;</pre>
+								<img src="images/quantityproductsbymonthin2014vs2015.jpg" alt="" />
+								<p>The chart between sales in 2014 and 2015 mostly look similar. In february both of years have decreased from January. Then, if look at May, both of years have increased sales which is good. Between June and August both of years look different. At 2014, sales have a constant trend but in 2015 sale have an increasing trend. It seems that there is a good strategy in 2015 compared in 2014. In September both of years have a downward trend, so it's better evaluate what's going on in September. However, this trend is good because in 2015 each month has increased sales compared in 2014.</p>	
+								<h3>The number of products purchased per day</h3>
+								<p>This section will show the number of products purchased per day</p>
+								<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?lang=sql&amp;skin=sunburst"></script>
+								</head>
+								<pre class="prettyprint lang-sql">
+SELECT COUNT(item_description) AS "Item Count", weekday(date) AS hari
+	FROM groceries_list
+	GROUP BY hari
+	ORDER BY hari;</pre>
+								<img src="images/quantityproductsbydayinallyears.jpg" alt="" />
+								<p>Groceries products are mostly purchased in <b>Thursday</b> but how about if i separate it by month in each year, is August still the most popular month for product purchases? Let's check it out.</p>
+								<pre class="prettyprint lang-sql">
+-- in 2015
+SELECT COUNT(item_description) AS "Item Count", weekday(date) as hari
+	FROM groceries_list
+	WHERE YEAR(date) = '2015'
+	GROUP by hari
+	ORDER BY hari;
+
+-- in 2014
+SELECT COUNT(item_description) AS "Item Count", weekday(date) as hari
+	FROM groceries_list
+	WHERE YEAR(date) = '2014'
+	GROUP by hari
+	ORDER BY hari;</pre>
+								<img src="images/quantityproductsbydayin2014vs2015.jpg" alt="" />
+								<p>The chart between sales in 2014 and 2015 mostly have opposite trend. But, Thursday is still best choice because the value is not much different between 2014 and 2015 and it's mean Thursday still have the biggest sales quantity and mean quantity than others. </p>	
+								<h3>The number of products purchased per day</h3>
+								<p>This section will show the number of products purchased per day</p>
+								<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?lang=sql&amp;skin=sunburst"></script>
+								</head>
+								<pre class="prettyprint lang-sql">
+SELECT COUNT(item_description) AS "Item Count", weekday(date) AS hari
+	FROM groceries_list
+	GROUP BY hari
+	ORDER BY hari;</pre>
+								<img src="images/quantityproductsbydayinallyears.jpg" alt="" />
+								<p>Groceries products are mostly purchased in <b>Thursday</b> but how about if i separate it by month in each year, is August still the most popular month for product purchases? Let's check it out.</p>
+								<pre class="prettyprint lang-sql">
+-- in 2015
+SELECT COUNT(item_description) AS "Item Count", weekday(date) as hari
+	FROM groceries_list
+	WHERE YEAR(date) = '2015'
+	GROUP by hari
+	ORDER BY hari;
+
+-- in 2014
+SELECT COUNT(item_description) AS "Item Count", weekday(date) as hari
+	FROM groceries_list
+	WHERE YEAR(date) = '2014'
+	GROUP by hari
+	ORDER BY hari;</pre>
+								<img src="images/quantityproductsbydayin2014vs2015.jpg" alt="" />
+								<p>The chart between sales in 2014 and 2015 mostly have opposite trend. But, Thursday is still best choice because the value is not much different between 2014 and 2015 and it's mean Thursday still have the biggest sales quantity and mean quantity than others. </p>	
+								<h3>Visualize the Word cloud of products</h3>
+								<p>This section will show the world cloud of products. World Cloud is very useful especially to display any keywords at most. So, in this case we can know what groups of items are frequently purchased. We don't have a query because Microsoft BI can synchronize directly.</p>
+								
+								<img src="images/wordcloud.jpg" alt="" />
+								<p>From Word Cloud <b>Vegetables</b> word is the biggest number of words. It means that Vegetable is the product most frequently purchased. Product like milk and fruit also quite a lot purchased by customers.</p>
+							</section>
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<section class="split contact">
+							<section class="alt">
+								<h3>Gracias!</h3>
+								<p>I can be reached anytime via e-mail or my linkedin
+									in the link below!
+								</p>
+							</section>
+							<section>
+								<h3>Email</h3>
+								<p><a href="mailto:luthfirinda.i@gmail.com">luthfirinda.i@gmail.com</a></p>
+							</section>
+							<section>
+								<h3>Social</h3>
+								<ul class="icons alt">
+									<li><a href="https://www.linkedin.com/in/luthfirinda/" target="_blank" class="icon brands alt fa-linkedin"><span class="label">Linkedin</span></a></li>
+									<li><a href="https://luthfirinda.github.io/" target="_blank" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+								</ul>
+							</section>
+						</section>
+					</footer>
+
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
