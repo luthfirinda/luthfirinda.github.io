@@ -96,6 +96,7 @@ SELECT item_description AS Item, COUNT(item_description) AS "Item Count"
 	ORDER BY COUNT(item_description)
 	LIMIT 10;</pre>
 								<img src="images/top10unsoldproducts.jpg" alt="" />
+								<p>The chart show that the <b>kitchen utensil</b> product occupying the first position of top 10 unsold products followed by preservation products. Maybe, groceries can remove kitchen utensil products or preservation products to reduce capital costs.</p>
 								<h3>Top 5 customers who buy frequently </h3>
 								<p>This section will show top 5 customers who buy frequently</p>
 								<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?lang=sql&amp;skin=sunburst"></script>
@@ -145,33 +146,6 @@ SELECT COUNT(item_description) AS "Item Count", MONTH(date) as bulan
 	ORDER BY bulan;</pre>
 								<img src="images/quantityproductsbymonthin2014vs2015.jpg" alt="" />
 								<p>The chart between sales in 2014 and 2015 mostly look similar. In february both of years have decreased from January. Then, if look at May, both of years have increased sales which is good. Between June and August both of years look different. At 2014, sales have a constant trend but in 2015 sale have an increasing trend. It seems that there is a good strategy in 2015 compared in 2014. In September both of years have a downward trend, so it's better evaluate what's going on in September. However, this trend is good because in 2015 each month has increased sales compared in 2014.</p>	
-								<h3>The number of products purchased per day</h3>
-								<p>This section will show the number of products purchased per day</p>
-								<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?lang=sql&amp;skin=sunburst"></script>
-								</head>
-								<pre class="prettyprint lang-sql">
-SELECT COUNT(item_description) AS "Item Count", weekday(date) AS hari
-	FROM groceries_list
-	GROUP BY hari
-	ORDER BY hari;</pre>
-								<img src="images/quantityproductsbydayinallyears.jpg" alt="" />
-								<p>Groceries products are mostly purchased in <b>Thursday</b> but how about if i separate it by month in each year, is August still the most popular month for product purchases? Let's check it out.</p>
-								<pre class="prettyprint lang-sql">
--- in 2015
-SELECT COUNT(item_description) AS "Item Count", weekday(date) as hari
-	FROM groceries_list
-	WHERE YEAR(date) = '2015'
-	GROUP by hari
-	ORDER BY hari;
-
--- in 2014
-SELECT COUNT(item_description) AS "Item Count", weekday(date) as hari
-	FROM groceries_list
-	WHERE YEAR(date) = '2014'
-	GROUP by hari
-	ORDER BY hari;</pre>
-								<img src="images/quantityproductsbydayin2014vs2015.jpg" alt="" />
-								<p>The chart between sales in 2014 and 2015 mostly have opposite trend. But, Thursday is still best choice because the value is not much different between 2014 and 2015 and it's mean Thursday still have the biggest sales quantity and mean quantity than others. </p>	
 								<h3>The number of products purchased per day</h3>
 								<p>This section will show the number of products purchased per day</p>
 								<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?lang=sql&amp;skin=sunburst"></script>
